@@ -13,17 +13,20 @@
       height: 100vh;
       color: white;
       font-family: Arial, sans-serif;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
     }
 
-    /* 🔄 botão 2× maior */
     button {
-      padding: 40px 80px;     /* antes 20px 40px */
-      font-size: 48px;        /* antes 24px */
+      padding: 40px 80px;
+      font-size: 48px;
       background-color: white;
       color: black;
       border: none;
       border-radius: 8px;
       cursor: pointer;
+      line-height: 1.4;
     }
 
     #camera-container {
@@ -32,23 +35,22 @@
       align-items: center;
     }
 
-    /* 🔄 vídeo 2× maior (largura máxima) */
     video {
-      margin-top: 20px;
-      width: 200%;
-      max-width: 800px;        /* antes 400px */
-      border: 2px solid white;
-      border-radius: 8px;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 1200px; /* aumentamos mais ainda */
+      border: 3px solid white;
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
   <div id="button-container">
-    <button onclick="abrirCamera()">Quem é John Galt? Clique aqui para descobrir</button>
+    <button onclick="abrirCamera()">Quem é John Galt?<br>Clique aqui</button>
   </div>
 
   <div id="camera-container">
-    <p>Câmera aberta:</p>
+    <p style="font-size: 28px;">Câmera aberta:</p>
     <video id="video" autoplay playsinline></video>
   </div>
 
@@ -63,7 +65,6 @@
         const video = document.getElementById('video');
         video.srcObject = stream;
 
-        // Esconde botão, mostra vídeo
         document.getElementById('button-container').style.display = 'none';
         document.getElementById('camera-container').style.display = 'flex';
       } catch (err) {
